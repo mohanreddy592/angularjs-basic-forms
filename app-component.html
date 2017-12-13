@@ -1,13 +1,23 @@
 
 <div>
-    <h2>My App</h2>
+    <h2>My Forms App</h2>
     
-    <form name="myform" novalidate>
-        <div>
-            <span>Username: </span><input type="text" ng-model="username" id="username">
-        </div><br>
-        <div>
-            <span>Password: </span><input type="text" ng-model="password" id="password">
+    <form name="myform" ng-submit="$ctrl.onSubmit(myform)" novalidate>
+        <div class="formgroup">
+            <span>Username: </span>
+            <input type="text" ng-model="$ctrl.username" name="username" minlength="3" required>
+            <p ng-show="myform.username.$error.required">This field is required</p>
+            <p ng-show="myform.username.$error.minlength">This reqires min 3 characters</p>
+        </div>
+        <div class="formgroup">
+            <span>Password: </span>
+            <input type="text" ng-model="$ctrl.password" name="password" minlength="3" required>
+            <p ng-show="myform.password.$error.required">This field is required</p>
+            <p ng-show="myform.password.$error.minlength">This reqires min 3 characters</p>
+        </div>
+        <div class="formactions">
+            <button type="submit" ng-disabled="myform.$invalid">Login</button>
+            <button type="reset">Reset</button>
         </div>
     </form>
     
