@@ -9,7 +9,7 @@
                 name="username" minlength="3" custom-validator="" required >
             <p ng-show="myform.username.$error.required">This field is required</p>
             <p ng-show="myform.username.$error.minlength">This reqires min 3 characters</p>
-            <p ng-show="myform.username.$error.customValidator">Enter Name without starts with 'A' character</p>
+            <p ng-show="myform.username.$error.isNameValid">Enter Name without starts with 'A' character</p>
         </div>
         <div class="formgroup">
             <span>Password: </span>
